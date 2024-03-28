@@ -1,3 +1,49 @@
+# Book Search App
+
+This React application allows users to search for books. It utilizes a custom hook `useBookSearch` to fetch book data based on user input.
+
+## Features
+
+- Search for books by typing in the input field.
+- Infinite scrolling: Load more books as you scroll down the page.
+- Loading indicator: Displays "Loading..." while fetching data.
+- Error handling: Shows "Error" if there's an issue with fetching data.
+
+## Installation
+
+To run this application locally, follow these steps:
+
+1. Clone this repository.
+2. Navigate to the project directory.
+3. Install dependencies by running `npm install` or `yarn install`.
+4. Start the development server by running `npm start` or `yarn start`.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Usage
+
+1. Type your desired query into the search input.
+2. As you type, the application will fetch and display relevant book results.
+3. Scroll down to load more books automatically if available.
+
+## Code Overview
+
+The main logic for fetching book data and handling infinite scrolling is contained within the `App` component. Here's an overview of the code:
+
+- `useState` is used to manage the state of the search query (`query`) and the current page number (`pageNumber`).
+- The `useBookSearch` custom hook is used to fetch book data based on the search query and page number.
+- `useRef` and `useCallback` are used to create an intersection observer that detects when the last book element is visible on the screen, triggering the loading of more books.
+- The `handleSearch` function updates the search query state and resets the page number to 1 when the user types in the search input.
+- Book data is displayed dynamically using `map()`, with a special `ref` assigned to the last book element to facilitate infinite scrolling.
+- Loading and error states are displayed conditionally based on the hook's return values.
+
+## Dependencies
+
+This project relies on the following dependencies:
+
+- `react`: ^17.0.2
+- `react-dom`: ^17.0.2
+- `useBookSearch`: Custom hook for fetching book data.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +114,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # Project-React-Infinity-Scrolling-API
